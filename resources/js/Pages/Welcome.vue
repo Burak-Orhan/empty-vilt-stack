@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue';
+import { Link } from '@inertiajs/vue3';
 
 const showGuide = ref(false);
 </script>
@@ -32,6 +33,13 @@ const showGuide = ref(false);
                         Pro Tips & Setup
                     </button>
 
+                    <Link
+                        :href="route('dashboard')"
+                        class="w-full sm:w-auto px-6 py-3 text-sm font-medium text-zinc-300 bg-transparent border border-zinc-700 rounded-md hover:bg-zinc-800 transition-colors text-center"
+                    >
+                        Go to Dashboard
+                    </Link>
+
                     <a href="https://github.com/Burak-Orhan" target="_blank" class="w-full sm:w-auto px-6 py-3 text-sm font-medium text-zinc-300 bg-transparent border border-zinc-700 rounded-md hover:bg-zinc-900 transition-colors text-center">
                         View on GitHub
                     </a>
@@ -63,7 +71,7 @@ const showGuide = ref(false);
                         </button>
                     </div>
 
-                    <div class="space-y-4">
+                    <div class="space-y-4 max-h-[60vh] overflow-y-auto pr-2">
 
                         <div class="p-4 rounded-lg bg-zinc-950/50 border border-zinc-800/50">
                             <h3 class="flex items-center gap-2 text-sm font-semibold text-zinc-200 mb-2">
@@ -97,12 +105,25 @@ const showGuide = ref(false);
 
                         <div class="p-4 rounded-lg bg-zinc-950/50 border border-zinc-800/50">
                             <h3 class="flex items-center gap-2 text-sm font-semibold text-zinc-200 mb-2">
-                                <svg class="w-4 h-4 text-purple-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A120.1 120.1 0 0010 1C5.58 1 2 4.58 2 9s3.58 8 8 8 8-3.58-8-8-3.58-8-8-8zm-2.03 11.234a.75.75 0 01-1.04-.04l-2.5-2.5a.75.75 0 111.04-1.08l1.94 1.94 4.48-5.38a.75.75 0 111.16.96l-5.08 6.1z" clip-rule="evenodd" /></svg>
+                                <svg class="w-4 h-4 text-purple-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A120.1 120.1 0 0010 1C5.58 1 2 4.58 2 9s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8zm-2.03 11.234a.75.75 0 01-1.04-.04l-2.5-2.5a.75.75 0 111.04-1.08l1.94 1.94 4.48-5.38a.75.75 0 111.16.96l-5.08 6.1z" clip-rule="evenodd" /></svg>
                                 Optimize Inertia Payloads
                             </h3>
                             <p class="text-sm text-zinc-400">
                                 Inertia sends JSON responses. Always use Laravel's <code class="text-xs text-zinc-300 bg-zinc-800 px-1 py-0.5 rounded">->select()</code> or API Resources to prevent exposing sensitive database columns and to keep the initial page load blazing fast.
                             </p>
+                        </div>
+
+                        <div class="p-4 rounded-lg bg-zinc-950/50 border border-zinc-800/50">
+                            <h3 class="flex items-center gap-2 text-sm font-semibold text-zinc-200 mb-2">
+                                <svg class="w-4 h-4 text-amber-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                                Ziggy Routing
+                            </h3>
+                            <p class="text-sm text-zinc-400 mb-3">
+                                Never hardcode URLs. Use Ziggy to access Laravel's named routes directly in Vue, keeping your frontend in sync with <code class="text-xs text-zinc-300 bg-zinc-800 px-1 py-0.5 rounded">web.php</code>.
+                            </p>
+                            <code class="block w-full p-3 text-xs text-amber-400 bg-zinc-950 rounded border border-zinc-800 font-mono">
+                                &lt;Link :href="route('dashboard')"&gt;Dashboard&lt;/Link&gt;
+                            </code>
                         </div>
 
                     </div>
